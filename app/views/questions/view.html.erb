@@ -1,0 +1,40 @@
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <div class="question">
+      <div class="question-title">
+        <h1><%= @question.title %></h1>
+      </div>
+      <div class="question-body">
+        <p><%= @question.body %></p>
+      </div>
+    </div>
+    <div class="answers">
+      <% if !@answers.nil? %>
+        <h2><%= @answers.length %> Answers</h2>
+        <% @answers.each do |answer| %>
+        <div class="answer">
+          <p style="white-space: pre-line;"><%= answer.body %></p>
+          <div class="answer-writer">
+            <% if !answer.user_id.nil? %>
+              <h6><%= posted_at answer.created_at %> by <%= find_email_by_user_id(answer.user_id) %></h6>
+            <% else %>
+              <h6><%= posted_at answer.created_at %></h6>
+          <% end %>
+          </div>
+        </div>
+        <% end %>
+      <% end %>
+      <% if logged_in? %>
+        <h2>Your Answer</h2>
+        <%= form_with model: @answer, url: '/questions/' + @question.id.to_s +  '/answers/create' do |f| %>
+          <div class="form-group">
+            <%= f.text_area :body, class: "form-control" %>
+          </div>
+          <%= f.submit "Submit", class: "btn" %>
+        <% end %>
+      <% else %>
+        <a href=<%= sessions_new_path %>>Login now to answer this question</a>
+      <% end %>
+    </div>
+  </div>
+</div>

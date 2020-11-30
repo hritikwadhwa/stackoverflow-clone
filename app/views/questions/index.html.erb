@@ -1,0 +1,20 @@
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <% if !@question.nil? %>
+      <% @question.each do |ques| %>
+        <div class="question">
+          <a href="questions/<%= ques.id  %>"><%= ques.title %></a>
+          <p><%= ques.body %></p>
+          <% if ques.user_id.nil? %>
+            <p class="timeline"><%= posted_at ques.created_at %></p>
+          <% else %>
+            <p class="timeline"><%= posted_at ques.created_at %> by <%= find_email_by_user_id ques.user_id %></p>
+          <% end %>
+          <%= link_to " <span class='glyphicon glyphicon-trash'></span> Delete".html_safe, questions_destroy_path(ques.id), method: :delete %>
+        </div>
+      <% end %>
+    <% else %>
+      <p>No questions found</p>
+    <% end %>
+  </div>
+</div>

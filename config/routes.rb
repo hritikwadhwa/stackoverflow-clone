@@ -1,0 +1,17 @@
+Rails.application.routes.draw do
+  post 'questions/:question_id/answers/create', to: 'answers#create', as: 'answer_create_path'
+  get 'answers/update'
+  get 'answers/delete'
+  get 'questions', to: 'questions#index'
+  get 'questions/:id', to: 'questions#view'
+  get 'questions/new'
+  post 'questions/create'
+  get 'questions/update'
+  get 'questions/destroy'
+  get 'sessions/new'
+  post 'sessions/create'
+  get 'sessions/destroy'
+  get 'users/new'
+  post 'users/create'
+  get 'users/update'
+end

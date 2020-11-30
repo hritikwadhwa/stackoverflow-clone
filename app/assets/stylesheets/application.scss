@@ -1,0 +1,71 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+body, html {
+  margin-top: 0px;
+  padding: 0px;
+}
+
+.header {
+  border-top: 3px solid orange;
+  background-color: #fafafb;
+  border-bottom: #e7e7e7;
+}
+
+.form-header {
+  h1 {
+    color: #666666;
+    font-size: 30px;
+  }
+}
+
+.form-body {
+  border-top: 1px solid rgb(204,204,204);
+  padding-top: 20px;
+}
+
+.form-footer {
+  a {
+    margin-left: 5px;
+    float: left;
+  }
+  p {
+    float: left
+  }
+}
+
+.question {
+   padding: 15px 10px;
+   p.timeline {
+        float: right;
+   }
+  .question-title {
+    border-bottom: 1px solid rgb(204, 204, 204);
+    h1 {
+      font-size: 30px;
+    }
+  }
+  .question-body {
+    padding-top: 20px;
+  }
+}
+
+.question:not(:first-child) {
+  border-top: 1px solid rgb(204,204,204);
+}
+
+.answers {
+  padding: 15px 10px;
+  h2 {
+    font-size: 20px;
+  }
+  .answer {
+    border-top: 1px solid rgb(204, 204, 204);
+    padding-top: 15px;
+    float: left;
+    width: 100%;
+    .answer-writer {
+      float: right;
+    }
+  }
+}
